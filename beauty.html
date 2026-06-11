@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width initial-scale=1.0">
+    <title>Darfeely Beauty - Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet"  href="styles.css">
+    <script defer src="app.js"></script>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="container nav-items">
+
+            <div class="nav-item account">
+                <i class="fa-regular fa-user"></i>
+                <span>Account</span>
+            </div>
+
+            <div class="nav-item search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span>Search</span>
+            </div>
+
+            <div class="nav-item nav-logo">
+                <a href="index.html"><img src="assets/logo.png" alt=""></a>
+            </div>
+
+            <div class="nav-item cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>Cart</span>
+            </div>
+
+            <div class="nav-item nav-menu">
+                <i class="fa-solid fa-bars"></i>
+                <span>Menu</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="img-viewer">
+        <img src="assets/lash-glue1.JPG" alt="" srcset="">
+        <div class="viewer-info">
+            <div class="info-top">
+                <span class="viewer-name">Lipstick - Diamond</span>
+                <div class="stars">
+                    <i class="fa-solid fa-star">*</i>
+                    <i class="fa-solid fa-star">*</i>
+                    <i class="fa-solid fa-star">*</i>
+                    <i class="fa-solid fa-star">*</i>
+                    <i class="fa-solid fa-star">*</i>
+                </div>
+            </div>
+
+            <div class="prices">
+                <div class="prices-left">
+                    <p class="old"><span>128000</span>.00 TZS</p>
+                    <p class="new">TOTAL: <span class="viewer-price"></span>.00 TZS</p>
+                </div>
+                <div class="prices-right">
+                    <span>Quantity:</span>
+                    <input type="number" value="1">
+                </div>
+            </div>
+            <button class="btn">BUY NOW!</button>
+        </div>
+    </div>
+
+    <div class="overlay"></div>
+
+    <div class="cart-box">
+            <h3 class="cart-title">Your Cart <i class="fa-solid fa-cross"></i></h3>
+
+            <div class="cart-items">
+                <div class="cart-item-card">
+                    <img src="assets/lash-glue1.JPG" alt="" srcset="">
+                    <div class="cart-item-info">
+                        <h4 class="name-cart">Lash Glue</h4>
+                        <span class="cart-quantity">
+                            <input type="number" value="1">
+                        </span>
+                    </div>
+                    <div class="cart-price"><span class="cart-item-price">10000</span> TZS</div>
+                </div>
+
+                <div class="cart-item-card">
+                    <img src="assets/lash-primer.JPG" alt="" srcset="">
+                    <div class="cart-item-info">
+                        <h4 class="name-cart">Lash primer</h4>
+                        <span class="cart-quantity">
+                            <input type="number" value="1">
+                        </span>
+                    </div>
+                    <div class="cart-price"><span class="cart-item-price">15000</span> TZS</div>
+                </div>
+
+                <div class="cart-item-card">
+                    <img src="assets/lash-shampoo1.JPG" alt="" srcset="">
+                    <div class="cart-item-info">
+                        <h4 class="name-cart">Lash shampoo</h4>
+                        <span class="cart-quantity">
+                            <input class="item-quantity" type="number" value="1">
+                        </span>
+                    </div>
+                    <div class="cart-price"><span class="cart-item-price">20000</span> TZS</div>
+                </div>
+
+            </div>
+
+            <div class="checkout">
+                <span class="total">TOTAL PRICE: <span class="total-num"></span> TZS</span>
+                <button class="btn buy-now">BUY NOW</button>
+            </div>
+    </div>
+
+    <div class="account-card">
+        <div class="container">
+            <div class="form">
+                <div class="login">
+                    <h3 class="">Login</h3>
+
+                    <div class="warning-box">
+                        <span>Not a valid email</span>
+                    </div>
+
+                    <form action="">
+                        <div class="form-group">
+                            <label for="">Email</label>
+                            <input type="email" placeholder="Enter Email...">
+                        </div>
+                        <div class="form-group pass-group">
+                            <label for="">Password</label>
+                            <input type="password" placeholder="Enter Password...">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+
+                        <button type="submit" class="btn">Login Now</button>
+                    </form>
+                    <span>Don't have an account? <a href="" class="call-reg-form">Register</a></span>
+                    <span class="divider">OR</span>
+                    <span class="google btn">
+                        <i class="fa-brands fa-google"></i>
+                        <a href="" >Login with Google</a>
+                    </span>
+                </div>
+
+                <div class="register">
+                    <h3 class="">Register</h3>
+
+                    <div class="warning-box">
+                        <span>Not a valid email</span>
+                    </div>
+                    <form action="">
+                        <div class="form-group">
+                            <label for="">Username</label>
+                            <input required type="text" placeholder="Enter Username...">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Phone</label>
+                            <input required type="number" placeholder="Enter Phone (0712 345 678)...">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Email</label>
+                            <input required type="email" placeholder="Enter Email...">
+                        </div>
+                        <div class="form-group pass-group">
+                            <label for="">Password</label>
+                            <input required type="password" placeholder="Enter Password...">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+
+                        <button class="btn" type="submit">Register Now</button>
+                    </form>
+                    <span>Already have an account? <a href="" class="call-log-form">Login</a></span>
+                    <span class="divider">OR</span>
+                    <span class="google btn">
+                        <i class="fa-brands fa-google"></i>
+                        <a href="">Register with Google</a>
+                    </span>
+                </div>
+
+                <div class="verify">
+                    <h3 class="">Verify Email</h3>
+
+                    <div class="warning-box">
+                        <span>Not a valid email</span>
+                    </div>
+                    <form action="">
+                        <div class="form-group">
+                            <label for="">A 6 digit Verification code was sent to your email.</label>
+                            <input required type="text" placeholder="Enter Verification Code...">
+                        </div>
+
+                        <button class="btn" type="submit">Verify Now</button>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu">
+        <a href="index.html">
+            <i class="fa solid fa-home"></i>
+            <span>Home</span>
+        </a>
+        <select>
+            <option value=""><a href="products.html">beauty products</a></option>
+            <option value=""><a href="lipsticks.html">Lipsticks</a></option>
+            <option value=""><a href="lashes.html">lashes</a></option>
+            <option value=""><a href="shampoo.html">lash shampoo</a></option>
+            <option value=""><a href="tweerzers.html">tweerzers</a></option>
+            <option value=""><a href="primer.html">lash primer</a></option>
+            <option value=""><a href="glue.html">Lash glue</a></option>
+            <option value=""><a href="mascara.html">colourless mascara</a></option>
+            <option value=""><a href="removal.html">lash removal</a></option>
+            <option value=""><a href="bottles.html">wash bottles</a></option>
+            <option value=""><a href="mirros.html">mirros</a></option>
+            <option value=""><a href="ring.html">ring</a></option>
+            <option value=""><a href="tape.html">lash tape</a></option>
+        </select>
+
+        <select>
+            <option value=""><a href="products.html">beauty services</a></option>
+            <option value=""><a href="../pages/lipsticks.html">full make up</a></option>
+            <option value=""><a href="../pages/lashes.html">wig insallation</a></option>
+            <option value=""><a href="../pages/shampoo.html">lashes installation</a></option>
+            <option value=""><a href="../pages/tweerzers.html">tweerzers</a></option>
+            <option value=""><a href="../pages/primer.html">lash primer</a></option>
+            <option value=""><a href="../pages/glue.html">Lash glue</a></option>
+            <option value=""><a href="../pages/mascara.html">mascara</a></option>
+            <option value=""><a href="../pages/removal.html">removal</a></option>
+            <option value=""><a href="../pages/bottles.html">bottles</a></option>
+            <option value=""><a href="../pages/mirros.html">mirros</a></option>
+            <option value=""><a href="../pages/ring.html">ring</a></option>
+            <option value=""><a href="../pages/tape.html">tape</a></option>
+        </select>
+        <a href="../pages/contact.html">
+            <i class="fa solid fa-id-badge"></i>
+            <span>contact us</span>
+        </a>
+        <a href="../pages/about.html">
+            <i class="fa solid fa-circle-question"></i>
+            <span>about us</span>
+        </a>
+        <a href="../pages/classes.html">
+            <i class="fa solid fa-shop"></i>
+            <span>take classes</span>
+        </a>
+    </div>
+
+    <div class="products-services">
+        <video autoplay muted loop class="bg-video">
+            <source src="assets/products-new.mp4" type="video/mp4">
+        </video>
+
+        <h2 class="products-title our-products">Our Products</h2>
+        <h2 class="products-title and-services">And Services</h2>
+    </div>
+
+        <h1 class="beauty-products-title">Beauty Products</h1>
+        <div class="tabs">
+            <div class="container">
+            <a href="#lipsticks" class="tab-item">Lipsticks</a>
+            <a href="#lashes" class="tab-item">Lashes</a>
+            <a href="#shampoo" class="tab-item">Shampoo</a>
+            <a href="#tweezers" class="tab-item">Tweezers</a>
+            <a href="#primer" class="tab-item">Primer</a>
+            <a href="#glue" class="tab-item">Glue</a>
+            <a href="#mascara" class="tab-item">Mascara</a>
+            <a href="#removal" class="tab-item">Removal</a>
+            <a href="#bottles" class="tab-item">Bottles</a>
+            <a href="#mirrors" class="tab-item">Mirrors</a>
+            <a href="#ring-glue" class="tab-item">Ring</a>
+            <a href="#tape" class="tab-item">Tape</a>
+            </div>
+        </div>
+
+    
+    <div id="lipsticks">
+        <div class="beauty-products">
+        <div class="container">
+            <h3 class="">Lipsticks</h3>
+        </div>
+
+        <!-- FILTER CONTAINER -->
+        <div class="items-filter">
+                  <div class="container">
+                      <div class="quantity"><span class="quantity-num">24</span> ITEMS</div>
+
+                    <div class="filter">
+                        <span>Filters</span>
+                        <i class="fa-solid fa-sliders"></i>
+                    </div>
+
+                    <div class="filter-options">
+                        <select>
+                            <option value="best">Best Selling</option>
+                            <option value="best">Newest</option>
+                            <option value="best">Rating</option>
+                            <option value="best">Price: Low to High</option>
+                            <option value="best">Price: High to Low</option>
+                        </select>
+                    </div>
+                  </div>
+                </div>
+        <!-- END FILTER CONTAINER -->
+
+        <!-- PRODUCTS CONTAINER -->
+         <div class="filtered-products">
+            <div class="container">
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="assets/lipstick-.diamond.JPG" alt="" srcset="">
+                        <span class="latest">new</span>
+                    </div>
+                    <div class="card-text">
+                        <span>Lipstick - Diamond</span>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <div class="prices">
+                            <p class="old"><span>128000</span> TZS</p>
+                            <p class="new"><span>78000</span> TZS</p>
+                        </div>
+                        <button class="btn">ADD TO CART</button>
+
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="assets/lipstick-.garnet.JPG" alt="" srcset="">
+                        <span class="latest">new</span>
+
+                    </div>
+                    <div class="card-text">
+                        <span>Lipstick - Garnet</span>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <div class="prices">
+                            <p class="old"><span>128000</span> TZS</p>
+                            <p class="new"><span>78000</span> TZS</p>
+                        </div>
+
+                        <button class="btn">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="assets/lipstick-.gold.JPG" alt="" srcset="">
+                        <span class="latest">new</span>
+
+                    </div>
+                    <div class="card-text">
+                        <span>Lipstick - Gold</span>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <div class="prices">
+                            <p class="old"><span>128000</span> TZS</p>
+                            <p class="new"><span>78000</span> TZS</p>
+                        </div>
+
+                        <button class="btn">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="assets/lipstick-.ruby.JPG" alt="" srcset="">
+                    </div>
+                    <div class="card-text">
+                        <span>Lipstick - ruby</span>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <div class="prices">
+                            <p class="old"><span>128000</span> TZS</p>
+                            <p class="new"><span>78000</span> TZS</p>
+                        </div>
+
+                        <button class="btn">ADD TO CART</button>
+                    </div>
+                </div>
+                <a href="lipsticks.html" class="more">See More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            </div>
+         </div>
+        <!-- END PRODUCTS CONTAINER -->
+
+        
+
+    </div>
+
+    <div id="lashes">
+        <div class="beauty-products">
+        <div class="container">
+            <h3 class="">Lashes</h3>
+        </div>
+
+        <!-- FILTER CONTAINER -->
+        <div class="items-filter">
+                  <div class="container">
+                      <div class="quantity"><span class="quantity-num">8</span> ITEMS</div>
+
+                    <div class="filter">
+                        <span>Filters</span>
+                        <i class="fa-solid fa-sliders"></i>
+                    </div>
+
+                    <div class="filter-options">
+                        <select>
+                            <option value="best">Best Selling</option>
+                            <option value="best">Newest</option>
+                            <option value="best">Rating</option>
+                            <option value="best">Price: Low to High</option>
+                            <option value="best">Price: High to Low</option>
+                        </select>
+                    </div>
+                  </div>
+                </div>
+        <!-- END FILTER CONTAINER -->
+
+        <!-- PRODUCTS CONTAINER -->
+         <div class="filtered-products">
+            <div class="container">
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="assets/lashes7.JPG" alt="" srcset="">
+                        <span class="latest">new</span>
+                    </div>
+                    <div class="card-text">
+                        <span>10 pair lashes</span>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <div class="prices">
+                            <p class="old"><span>28000</span> TZS</p>
+                            <p class="new"><span>25000</span> TZS</p>
+                        </div>
+                        <button class="btn">ADD TO CART</button>
+
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="assets/lashes2.JPG" alt="" srcset="">
+                        <span class="latest">new</span>
+
+                    </div>
+                    <div class="card-text">
+                        <span>Tape lashes</span>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <div class="prices">
+                            <p class="old"><span>7000</span> TZS</p>
+                            <p class="new"><span>6000</span> TZS</p>
+                        </div>
+
+                        <button class="btn">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="assets/lashes3.JPG" alt="" srcset="">
+                        <span class="latest">new</span>
+
+                    </div>
+                    <div class="card-text">
+                        <span>individual D lashes</span>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <div class="prices">
+                            <p class="old"><span>18000</span> TZS</p>
+                            <p class="new"><span>15000</span> TZS</p>
+                        </div>
+
+                        <button class="btn">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="assets/lashes-kit.JPG" alt="" srcset="">
+                    </div>
+                    <div class="card-text">
+                        <span>Lashes Full kit</span>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <div class="prices">
+                            <p class="old"><span>45000</span> TZS</p>
+                            <p class="new"><span>40000</span> TZS</p>
+                        </div>
+
+                        <button class="btn">ADD TO CART</button>
+                    </div>
+                </div>
+                <a href="lashes.html" class="more">See More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            </div>
+         </div>
+        <!-- END PRODUCTS CONTAINER -->
+
+        
+
+    </div>
+
+    <div id="shampoo">
+        <div class="beauty-products">
+        <div class="container">
+            <h3 class="">Lashes Shampoo</h3>
+        </div>
+
+        <!-- FILTER CONTAINER -->
+        <div class="items-filter">
+                  <div class="container">
+                      <div class="quantity"><span class="quantity-num">1</span> ITEMS</div>
+
+                    <div class="filter">
+                        <span>Filters</span>
+                        <i class="fa-solid fa-sliders"></i>
+                    </div>
+
+                    <div class="filter-options">
+                        <select>
+                            <option value="best">Best Selling</option>
+                            <option value="best">Newest</option>
+                            <option value="best">Rating</option>
+                            <option value="best">Price: Low to High</option>
+                            <option value="best">Price: High to Low</option>
+                        </select>
+                    </div>
+                  </div>
+                </div>
+        <!-- END FILTER CONTAINER -->
+
+        <!-- PRODUCTS CONTAINER -->
+         <div class="filtered-products">
+            <div class="container">
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="assets/lash-shampoo1.JPG" alt="" srcset="">
+                        <span class="latest">new</span>
+
+                    </div>
+                    <div class="card-text">
+                        <span>lash shampoo</span>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <div class="prices">
+                            <p class="old"><span>18000</span> TZS</p>
+                            <p class="new"><span>15000</span> TZS</p>
+                        </div>
+
+                        <button class="btn">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="assets/lashes-kit.JPG" alt="" srcset="">
+                    </div>
+                    <div class="card-text">
+                        <span>Lashes Full kit</span>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <div class="prices">
+                            <p class="old"><span>45000</span> TZS</p>
+                            <p class="new"><span>40000</span> TZS</p>
+                        </div>
+
+                        <button class="btn">ADD TO CART</button>
+                    </div>
+                </div>
+                <a href="shampoo.html" class="more">See More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            </div>
+         </div>
+        <!-- END PRODUCTS CONTAINER -->
+
+        
+
+    </div>
+
+    <div id="tweezers">
+        <div class="beauty-products">
+        <div class="container">
+            <h3 class="">Tweezers</h3>
+        </div>
+
+        <!-- FILTER CONTAINER -->
+        <div class="items-filter">
+                  <div class="container">
+                      <div class="quantity"><span class="quantity-num">2</span> ITEMS</div>
+
+                    <div class="filter">
+                        <span>Filters</span>
+                        <i class="fa-solid fa-sliders"></i>
+                    </div>
+
+                    <div class="filter-options">
+                        <select>
+                            <option value="best">Best Selling</option>
+                            <option value="best">Newest</option>
+                            <option value="best">Rating</option>
+                            <option value="best">Price: Low to High</option>
+                            <option value="best">Price: High to Low</option>
+                        </select>
+                    </div>
+                  </div>
+                </div>
+        <!-- END FILTER CONTAINER -->
+
+        <!-- PRODUCTS CONTAINER -->
+         <div class="filtered-products">
+            <div class="container">
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="assets/tweezer.JPG" alt="" srcset="">
+                        <span class="latest">new</span>
+
+                    </div>
+                    <div class="card-text">
+                        <span>Tweezers</span>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <div class="prices">
+                            <p class="old"><span>11000</span> TZS</p>
+                            <p class="new"><span>10000</span> TZS</p>
+                        </div>
+
+                        <button class="btn">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="assets/lashes-kit.JPG" alt="" srcset="">
+                    </div>
+                    <div class="card-text">
+                        <span>Lashes Full kit</span>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <div class="prices">
+                            <p class="old"><span>45000</span> TZS</p>
+                            <p class="new"><span>40000</span> TZS</p>
+                        </div>
+
+                        <button class="btn">ADD TO CART</button>
+                    </div>
+                </div>
+                <a href="tweezers.html" class="more">See More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            </div>
+         </div>
+        <!-- END PRODUCTS CONTAINER -->
+
+        
+
+    </div>
+
+    <div id="primer">
+        <div class="beauty-products">
+        <div class="container">
+            <h3 class="">Lash Primer</h3>
+        </div>
+
+        <!-- FILTER CONTAINER -->
+        <div class="items-filter">
+                  <div class="container">
+                      <div class="quantity"><span class="quantity-num">2</span> ITEMS</div>
+
+                    <div class="filter">
+                        <span>Filters</span>
+                        <i class="fa-solid fa-sliders"></i>
+                    </div>
+
+                    <div class="filter-options">
+                        <select>
+                            <option value="best">Best Selling</option>
+                            <option value="best">Newest</option>
+                            <option value="best">Rating</option>
+                            <option value="best">Price: Low to High</option>
+                            <option value="best">Price: High to Low</option>
+                        </select>
+                    </div>
+                  </div>
+                </div>
+        <!-- END FILTER CONTAINER -->
+
+        <!-- PRODUCTS CONTAINER -->
+         <div class="filtered-products">
+            <div class="container">
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="assets/lash-primer.JPG" alt="" srcset="">
+                        <span class="latest">new</span>
+
+                    </div>
+                    <div class="card-text">
+                        <span>Lash Primer</span>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half"></i>
+                        </div>
+                        <div class="prices">
+                            <p class="old"><span>17000</span> TZS</p>
+                            <p class="new"><span>15000</span> TZS</p>
+                        </div>
+
+                        <button class="btn">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="assets/lashes-kit.JPG" alt="" srcset="">
+                    </div>
+                    <div class="card-text">
+                        <span>Lashes Full kit</span>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <div class="prices">
+                            <p class="old"><span>45000</span> TZS</p>
+                            <p class="new"><span>40000</span> TZS</p>
+                        </div>
+
+                        <button class="btn">ADD TO CART</button>
+                    </div>
+                </div>
+                <a href="primer.html" class="more">See More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            </div>
+         </div>
+        <!-- END PRODUCTS CONTAINER -->
+
+        
+
+    </div>
+
+    <div id="glue">
+        <div class="beauty-products">
+        <div class="container">
+            <h3 class="">Tape Lash glue</h3>
+        </div>
+
+        <!-- FILTER CONTAINER -->
+        <div class="items-filter">
+                  <div class="container">
+                      <div class="quantity"><span class="quantity-num">2</span> ITEMS</div>
+
+                    <div class="filter">
+                        <span>Filters</span>
+                        <i class="fa-solid fa-sliders"></i>
+                    </div>
+
+                    <div class="filter-options">
+                        <select>
+                            <option value="best">Best Selling</option>
+                            <option value="best">Newest</option>
+                            <option value="best">Rating</option>
+                            <option value="best">Price: Low to High</option>
+                            <option value="best">Price: High to Low</option>
+                        </select>
+                    </div>
+                  </div>
+                </div>
+        <!-- END FILTER CONTAINER -->
+
+        <!-- PRODUCTS CONTAINER -->
+         <div class="filtered-products">
+            <div class="container">
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="assets/lash-primer.JPG" alt="" srcset="">
+                        <span class="latest">new</span>
+
+                    </div>
+                    <div class="card-text">
+                        <span>tape Lash glue</span>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half"></i>
+                        </div>
+                        <div class="prices">
+                            <p class="old"><span>12000</span> TZS</p>
+                            <p class="new"><span>10000</span> TZS</p>
+                        </div>
+
+                        <button class="btn">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="assets/lashes-kit.JPG" alt="" srcset="">
+                    </div>
+                    <div class="card-text">
+                        <span>Lashes Full kit</span>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <div class="prices">
+                            <p class="old"><span>45000</span> TZS</p>
+                            <p class="new"><span>40000</span> TZS</p>
+                        </div>
+
+                        <button class="btn">ADD TO CART</button>
+                    </div>
+                </div>
+                <a href="glue.html" class="more">See More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            </div>
+         </div>
+        <!-- END PRODUCTS CONTAINER -->
+
+        
+
+    </div>
+
+    <div class="newsletter">
+        <div class="newsletter-left">
+            <img src="assets/lash-glue1.JPG" alt="" srcset="">
+        </div>
+
+        <div class="container">
+            <div class="title">
+                <h3><span class="extra-title">Subscribe To Our E-mail </span>Newsletter</h3>
+                <p>To be among the first people to receive updates offers and information about our products and services.</p>
+            </div>
+            <div class="newsletter-form">
+                <input type="email" placeholder="Enter email...">
+                <button class="btn">SUBSCRIBE!</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+<footer>
+    <div class="container">
+        <h1 class="">Darfeely Beauty <span class="extra-desc">Salon & Store</span>
+        </h1>
+        <div class="contacts">
+            <span class="phone">
+                <i class="fa-solid fa-phone"></i>
+                <a href="tel:+255782515322">0782 515 322</a>
+            </span>
+            <span class="location">
+                <i class="fa-solid fa-location"></i>
+                <a href="">Dar es salaam Tanzania</a>
+            </span>
+            <span class="email">
+                <i class="fa-solid fa-envelope"></i>
+                <a href="mailto:darfeelybeauty@gmail.com">Darfeelybeauty@gmail.com</a>
+            </span>
+            <div class="socials">
+                <span class="ig">
+                    <i class="fa-brands fa-instagram"></i>
+                    <a href="">@feelybetter</a>
+                </span>
+                <span class="ig">
+                    <i class="fa-brand fa-whatsapp"></i>
+                    <a href="">@darfeely_beauty</a>
+                </span>
+            </div>
+        </div>
+        <span>Web Developer <i class="fa-solid fa-phone"></i> <a href="tel:+255626685293">0626 685 293</a></span>
+        <span>&copy; 2025 Darfeely Beauty. All rights reserved.</span>
+    </div>
+    <div class="footer-right">
+        <img src="assets/our-mission.jpg" alt="" srcset="">
+    </div>
+</footer>
+</html>

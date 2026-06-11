@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Darfeely Beauty Salon &amp; Store — Luxury beauty products and professional services in Dar es Salaam, Tanzania. Lashes, lipsticks, makeup, and more.">
+  <meta name="theme-color" content="#e83e7d">
+  <title>Darfeely Beauty | Salon &amp; Store — Feel Beautiful, Be You</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- ===================== OVERLAY ===================== -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/logo.png" alt="Darfeely Beauty Logo">
+        <div class="nav-brand">
+          <span class="nav-brand-name">Darfeely Beauty</span>
+          <span class="nav-brand-tag">Salon &amp; Store · Dar es Salaam</span>
+        </div>
+      </a>
+      <div class="nav-actions">
+        <div class="nav-action-btn" id="searchBtn" role="button" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <span>Search</span>
+        </div>
+        <div class="nav-action-btn" id="accountBtn" role="button" aria-label="Account">
+          <i class="fa-regular fa-user"></i>
+          <span>Account</span>
+        </div>
+        <div class="nav-action-btn" id="cartBtn" role="button" aria-label="Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span>Cart</span>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </div>
+        <div class="nav-action-btn" id="menuBtn" role="button" aria-label="Menu">
+          <i class="fa-solid fa-bars"></i>
+          <span>Menu</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================== SEARCH BAR ===================== -->
+  <div class="search-bar" id="searchBar">
+    <div class="search-bar-inner">
+      <i class="fa-solid fa-magnifying-glass" style="color:var(--text-muted)"></i>
+      <input type="search" id="searchInput" placeholder="Search products or services…" autocomplete="off">
+      <button class="btn btn-primary" style="padding:8px 18px;font-size:0.78rem;">Search</button>
+    </div>
+  </div>
+
+  <!-- ===================== ACCOUNT PANEL ===================== -->
+  <aside class="side-panel panel-account" id="accountPanel">
+    <div class="panel-header">
+      <h3><i class="fa-regular fa-user" style="margin-right:8px;color:var(--primary)"></i>My Account</h3>
+      <button class="panel-close" id="accountClose"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="panel-body">
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="loginTab">Login</button>
+        <button class="auth-tab" id="registerTab">Register</button>
+      </div>
+      <div class="warning-box" id="authWarning">
+        <span id="authWarningText">Invalid credentials</span>
+      </div>
+      <div class="auth-form active" id="loginForm">
+        <form id="loginFormEl">
+          <div class="form-group">
+            <label for="loginEmail">Email Address</label>
+            <input type="email" id="loginEmail" placeholder="you@example.com" required>
+          </div>
+          <div class="form-group pass-group">
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" placeholder="••••••••" required>
+            <i class="fa-solid fa-eye eye-icon" id="toggleLoginPass"></i>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;margin-top:4px;">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i> Sign In
+          </button>
+        </form>
+        <div class="auth-divider"><span>or continue with</span></div>
+        <button class="btn btn-google"><i class="fa-brands fa-google"></i> Sign in with Google</button>
+        <p class="auth-switch">Don't have an account? <a href="#" id="toRegister">Create one</a></p>
+      </div>
+      <div class="auth-form" id="registerForm">
+        <form id="registerFormEl">
+          <div class="form-group">
+            <label for="regName">Full Name</label>
+            <input type="text" id="regName" placeholder="Jane Darfeely" required>
+          </div>
+          <div class="form-group">
+            <label for="regPhone">Phone Number</label>
+            <input type="tel" id="regPhone" placeholder="0712 345 678" required>
+          </div>
+          <div class="form-group">
+            <label for="regEmail">Email Address</label>
+            <input type="email" id="regEmail" placeholder="you@example.com" required>
+          </div>
+          <div class="form-group pass-group">
+            <label for="regPassword">Password</label>
+            <input type="password" id="regPassword" placeholder="••••••••" required>
+            <i class="fa-solid fa-eye eye-icon" id="toggleRegPass"></i>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;margin-top:4px;">
+            <i class="fa-solid fa-user-plus"></i> Create Account
+          </button>
+        </form>
+        <div class="auth-divider"><span>or continue with</span></div>
+        <button class="btn btn-google"><i class="fa-brands fa-google"></i> Register with Google</button>
+        <p class="auth-switch">Already have an account? <a href="#" id="toLogin">Sign in</a></p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===================== CART PANEL ===================== -->
+  <aside class="side-panel panel-cart" id="cartPanel">
+    <div class="panel-header">
+      <h3><i class="fa-solid fa-bag-shopping" style="margin-right:8px;color:var(--primary)"></i>Your Cart</h3>
+      <button class="panel-close" id="cartClose"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="panel-body">
+      <div class="cart-items-list" id="cartItemsList">
+        <div style="text-align:center;padding:40px 0;color:var(--text-muted);">
+          <i class="fa-solid fa-bag-shopping" style="font-size:2.5rem;margin-bottom:12px;display:block;opacity:0.3;"></i>
+          <p style="font-size:0.9rem;">Your cart is empty</p>
+          <p style="font-size:0.8rem;margin-top:4px;">Add some beautiful products!</p>
+        </div>
+      </div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span class="cart-total-label">Total</span>
+        <span class="cart-total-price" id="cartTotalDisplay">TZS 0</span>
+      </div>
+      <button class="btn btn-primary" id="checkoutBtn" style="width:100%;">
+        <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
+      </button>
+    </div>
+  </aside>
+
+  <!-- ===================== MENU PANEL ===================== -->
+  <aside class="side-panel panel-menu" id="menuPanel">
+    <div class="panel-header">
+      <h3><i class="fa-solid fa-grip" style="margin-right:8px;color:var(--primary)"></i>Navigation</h3>
+      <button class="panel-close" id="menuClose"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="panel-body">
+      <nav class="menu-nav">
+        <a href="index.html" class="active"><i class="fa-solid fa-house"></i> Home</a>
+        <span class="menu-group-label">Beauty Products</span>
+        <button class="menu-group-toggle" id="productsToggle">
+          <i class="fa-solid fa-sparkles"></i> Products
+          <i class="fa-solid fa-chevron-down toggle-icon"></i>
+        </button>
+        <div class="menu-sub" id="productsSub">
+          <a href="#lipsticks"><i class="fa-solid fa-wand-magic-sparkles"></i> Lipsticks</a>
+          <a href="#lashes"><i class="fa-solid fa-eye"></i> Lashes</a>
+          <a href="#shampoo"><i class="fa-solid fa-pump-soap"></i> Lash Shampoo</a>
+          <a href="#tweezers"><i class="fa-solid fa-scissors"></i> Tweezers</a>
+          <a href="#primer"><i class="fa-solid fa-droplet"></i> Lash Primer</a>
+          <a href="#glue"><i class="fa-solid fa-bottle-droplet"></i> Lash Glue</a>
+          <a href="#mascara"><i class="fa-solid fa-brush"></i> Mascara</a>
+          <a href="#tape"><i class="fa-solid fa-tape"></i> Lash Tape</a>
+        </div>
+        <span class="menu-group-label">Beauty Services</span>
+        <button class="menu-group-toggle" id="servicesToggle">
+          <i class="fa-solid fa-star"></i> Services
+          <i class="fa-solid fa-chevron-down toggle-icon"></i>
+        </button>
+        <div class="menu-sub" id="servicesSub">
+          <a href="#"><i class="fa-solid fa-face-smile-beam"></i> Full Makeup</a>
+          <a href="#"><i class="fa-solid fa-hat-wizard"></i> Wig Installation</a>
+          <a href="#"><i class="fa-solid fa-eye"></i> Lashes Installation</a>
+          <a href="#"><i class="fa-solid fa-spa"></i> Nail Art</a>
+        </div>
+        <span class="menu-group-label">More</span>
+        <a href="#"><i class="fa-solid fa-graduation-cap"></i> Take Classes</a>
+        <a href="#"><i class="fa-solid fa-circle-info"></i> About Us</a>
+        <a href="tel:+255782515322"><i class="fa-solid fa-phone"></i> Contact Us</a>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- ===================== PRODUCT VIEWER MODAL ===================== -->
+  <div class="product-viewer" id="productViewer">
+    <button class="panel-close" id="viewerClose"
+      style="position:absolute;top:12px;right:12px;z-index:10;background:rgba(8,5,16,0.75);backdrop-filter:blur(10px);">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div class="viewer-img-wrap">
+      <img id="viewerImg" src="" alt="Product">
+    </div>
+    <div class="viewer-body">
+      <div>
+        <div class="viewer-name" id="viewerName">Product Name</div>
+        <div class="viewer-stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+      </div>
+      <div class="viewer-price-row">
+        <div class="viewer-price-group">
+          <span class="viewer-price-old" id="viewerPriceOld"></span>
+          <span class="viewer-price-new" id="viewerPriceNew"></span>
+        </div>
+        <div class="viewer-qty-group">
+          <span class="viewer-qty-label">Qty</span>
+          <input type="number" class="viewer-qty-input" id="viewerQty" value="1" min="1">
+        </div>
+      </div>
+      <div class="viewer-actions">
+        <button class="btn btn-outline" id="viewerAddCart">
+          <i class="fa-solid fa-bag-shopping"></i> Add to Cart
+        </button>
+        <button class="btn btn-primary" id="viewerBuyNow">
+          <i class="fa-brands fa-whatsapp"></i> Buy Now
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="container hero-content">
+      <div class="hero-inner animate-up">
+        <div class="hero-badge">✦ New Collections Available</div>
+        <h1 class="hero-title">
+          Feel Beautiful,<br>
+          <span class="highlight">Be You.</span>
+        </h1>
+        <p class="hero-desc">
+          Redefining beauty standards with luxury-quality products and services — affordable, authentic, and timeless.
+          From <span>Darfeely Beauty</span>, Dar es Salaam.
+        </p>
+        <div class="hero-actions">
+          <button class="btn btn-primary animate-glow"
+            onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+            <i class="fa-solid fa-bag-shopping"></i> Shop Now
+          </button>
+          <a href="tel:+255782515322" class="btn btn-outline">
+            <i class="fa-solid fa-phone"></i> Book a Service
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== STATS BAR ===================== -->
+  <div class="stats-bar">
+    <div class="container stats-inner">
+      <div class="stat-item reveal">
+        <span class="stat-value">500+</span>
+        <span class="stat-label">Happy Clients</span>
+      </div>
+      <div class="stat-item reveal">
+        <span class="stat-value">24</span>
+        <span class="stat-label">Lipstick Shades</span>
+      </div>
+      <div class="stat-item reveal">
+        <span class="stat-value">8+</span>
+        <span class="stat-label">Lash Styles</span>
+      </div>
+      <div class="stat-item reveal">
+        <span class="stat-value">100%</span>
+        <span class="stat-label">Authentic</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== BANNER VIDEO ===================== -->
+  <div class="banner-section">
+    <video class="banner-video" autoplay muted loop playsinline>
+      <source src="assets/products-new.mp4" type="video/mp4">
+    </video>
+    <div class="banner-overlay">
+      <span class="banner-tag">✦ Darfeely Beauty Collection</span>
+      <h2 class="banner-title">Our <span>Products</span><br>&amp; Services</h2>
+      <button class="btn btn-outline"
+        onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+        Explore All <i class="fa-solid fa-arrow-down"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- ===================== SHOWCASE — LASH MODELS ===================== -->
+  <section class="showcase-section">
+    <div class="container">
+      <div class="section-header" style="text-align:center;">
+        <span class="section-label">✦ Real Results</span>
+        <h2 class="section-title" style="text-align:center;">Lash Transformations</h2>
+        <p class="section-desc" style="margin:10px auto 0;text-align:center;">
+          See the difference our professional lash services &amp; products make.
+        </p>
+      </div>
+      <div class="showcase-grid reveal">
+        <div class="showcase-item showcase-large">
+          <img src="assets/lashes-hero.JPG.jpg" alt="Lash transformation model">
+          <div class="showcase-label">Professional Lash Set</div>
+        </div>
+        <div class="showcase-col">
+          <div class="showcase-item">
+            <img src="assets/lashes-model.JPG.jpg" alt="Lash model close-up">
+            <div class="showcase-label">Volume Lashes</div>
+          </div>
+          <div class="showcase-item">
+            <img src="assets/lashes-models.JPG.jpg" alt="Lash models">
+            <div class="showcase-label">Classic Natural Look</div>
+          </div>
+        </div>
+        <div class="showcase-col">
+          <div class="showcase-item">
+            <img src="assets/lashes-hero2.JPG.jpg" alt="Lash hero 2">
+            <div class="showcase-label">Mega Volume</div>
+          </div>
+          <div class="showcase-item">
+            <img src="assets/lashes-hero3.JPG.jpg" alt="Lash hero 3">
+            <div class="showcase-label">Wispy Style</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== LIPSTICK SHOWCASE ===================== -->
+  <section class="lipstick-feature-section">
+    <div class="container">
+      <div class="lipstick-feature-inner">
+        <div class="lipstick-feature-images reveal">
+          <div class="lf-main">
+            <img src="assets/lipstick-hero.JPG.jpg" alt="Lipstick hero">
+          </div>
+          <div class="lf-grid">
+            <img src="assets/lipstick1.JPG.jpg" alt="Lipstick showcase 1">
+            <img src="assets/lipstick2.JPG.jpg" alt="Lipstick showcase 2">
+            <img src="assets/lipstick3.JPG.jpg" alt="Lipstick showcase 3">
+            <img src="assets/lipstick4.JPG.jpg" alt="Lipstick showcase 4">
+          </div>
+        </div>
+        <div class="lipstick-feature-content reveal">
+          <span class="section-label">✦ Gem Collection</span>
+          <h2 class="section-title">24 Precious<br><span style="background:var(--gradient-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic;">Lipstick Shades</span></h2>
+          <p class="section-desc">
+            Named after the world's most precious gemstones — Diamond, Ruby, Garnet, Gold, Sapphire, Tanzanite, and more. Each shade is crafted for long-lasting, vibrant color that stays all day.
+          </p>
+          <div class="lipstick-shades">
+            <img src="assets/lipstick-.diamond.JPG.jpg" alt="Diamond" title="Diamond">
+            <img src="assets/lipstick-.garnet.JPG.jpg" alt="Garnet" title="Garnet">
+            <img src="assets/lipstick-.gold.JPG.jpg" alt="Gold" title="Gold">
+            <img src="assets/lipstick-.ruby.JPG.jpg" alt="Ruby" title="Ruby">
+            <img src="assets/lipstick-.saphire.JPG.jpg" alt="Sapphire" title="Sapphire">
+            <img src="assets/lipstick-.tanzanite.JPG.jpg" alt="Tanzanite" title="Tanzanite">
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;">
+            <button class="btn btn-primary"
+              onclick="document.getElementById('lipsticks').scrollIntoView({behavior:'smooth'})">
+              <i class="fa-solid fa-bag-shopping"></i> Shop Lipsticks
+            </button>
+            <a href="lipsticks.html" class="btn btn-outline">View All 24 Shades</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CATEGORY TABS ===================== -->
+  <div class="category-tabs-wrap" id="products">
+    <div class="container">
+      <div class="category-tabs" id="catTabs">
+        <a href="#lipsticks" class="cat-tab active" data-cat="lipsticks">
+          <i class="fa-solid fa-wand-magic-sparkles"></i> Lipsticks
+        </a>
+        <a href="#lashes" class="cat-tab" data-cat="lashes">
+          <i class="fa-solid fa-eye"></i> Lashes
+        </a>
+        <a href="#shampoo" class="cat-tab" data-cat="shampoo">
+          <i class="fa-solid fa-pump-soap"></i> Shampoo
+        </a>
+        <a href="#tweezers" class="cat-tab" data-cat="tweezers">
+          <i class="fa-solid fa-scissors"></i> Tweezers
+        </a>
+        <a href="#primer" class="cat-tab" data-cat="primer">
+          <i class="fa-solid fa-droplet"></i> Primer
+        </a>
+        <a href="#glue" class="cat-tab" data-cat="glue">
+          <i class="fa-solid fa-bottle-droplet"></i> Glue
+        </a>
+        <a href="#mascara" class="cat-tab" data-cat="mascara">
+          <i class="fa-solid fa-brush"></i> Mascara
+        </a>
+        <a href="#tape" class="cat-tab" data-cat="tape">
+          <i class="fa-solid fa-tape"></i> Tape
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== PRODUCTS ===================== -->
+  <main>
+
+    <!-- ── LIPSTICKS ── -->
+    <section id="lipsticks" class="products-section">
+      <div class="container">
+        <div class="products-section-header">
+          <div class="products-section-title">
+            <span>Gem Collection — 24 Shades</span>
+            Lipsticks
+          </div>
+          <div class="filter-bar">
+            <span class="filter-count">24 items</span>
+            <select class="filter-select" aria-label="Sort lipsticks">
+              <option>Best Selling</option><option>Newest</option>
+              <option>Price: Low → High</option><option>Price: High → Low</option>
+            </select>
+          </div>
+        </div>
+        <div class="products-grid reveal">
+
+          <div class="product-card" data-name="Lipstick — Diamond" data-img="assets/lipstick-.diamond.JPG.jpg" data-old="128,000" data-price="78,000">
+            <div class="card-img-wrap">
+              <img src="assets/lipstick-.diamond.JPG.jpg" alt="Lipstick Diamond" loading="lazy">
+              <span class="card-badge badge-new">New</span>
+              <div class="card-quick-actions">
+                <button class="quick-action-btn" title="Wishlist"><i class="fa-regular fa-heart"></i></button>
+                <button class="quick-action-btn card-quick-view" title="Quick View"><i class="fa-solid fa-eye"></i></button>
+              </div>
+              <div class="card-img-overlay"></div>
+              <button class="btn btn-primary card-view-btn card-quick-view">Quick View</button>
+            </div>
+            <div class="card-body">
+              <div class="card-name">Lipstick — Diamond</div>
+              <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <div class="card-pricing">
+                <div class="card-price-group">
+                  <span class="price-old">TZS 128,000</span>
+                  <span class="price-new">TZS 78,000</span>
+                </div>
+                <button class="card-add-btn add-to-cart-btn"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" data-name="Lipstick — Garnet" data-img="assets/lipstick-.garnet.JPG.jpg" data-old="128,000" data-price="78,000">
+            <div class="card-img-wrap">
+              <img src="assets/lipstick-.garnet.JPG.jpg" alt="Lipstick Garnet" loading="lazy">
+              <span class="card-badge badge-new">New</span>
+              <div class="card-quick-actions">
+                <button class="quick-action-btn" title="Wishlist"><i class="fa-regular fa-heart"></i></button>
+                <button class="quick-action-btn card-quick-view"><i class="fa-solid fa-eye"></i></button>
+              </div>
+              <div class="card-img-overlay"></div>
+              <button class="btn btn-primary card-view-btn card-quick-view">Quick View</button>
+            </div>
+            <div class="card-body">
+              <div class="card-name">Lipstick — Garnet</div>
+              <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <div class="card-pricing">
+                <div class="card-price-group">
+                  <span class="price-old">TZS 128,000</span><span class="price-new">TZS 78,000</span>
+                </div>
+                <button class="card-add-btn add-to-cart-btn"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" data-name="Lipstick — Gold" data-img="assets/lipstick-.gold.JPG.jpg" data-old="128,000" data-price="78,000">
+            <div class="card-img-wrap">
+              <img src="assets/lipstick-.gold.JPG.jpg" alt="Lipstick Gold" loading="lazy">
+              <span class="card-badge badge-sale">Sale</span>
+              <div class="card-quick-actions">
+                <button class="quick-action-btn"><i class="fa-regular fa-heart"></i></button>
+                <button class="quick-action-btn card-quick-view"><i class="fa-solid fa-eye"></i></button>
+              </div>
+              <div class="card-img-overlay"></div>
+              <button class="btn btn-primary card-view-btn card-quick-view">Quick View</button>
+            </div>
+            <div class="card-body">
+              <div class="card-name">Lipstick — Gold</div>
+              <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <div class="card-pricing">
+                <div class="card-price-group">
+                  <span class="price-old">TZS 128,000</span><span class="price-new">TZS 78,000</span>
+                </div>
+                <button class="card-add-btn add-to-cart-btn"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" data-name="Lipstick — Ruby" data-img="assets/lipstick-.ruby.JPG.jpg" data-old="128,000" data-price="78,000">
+            <div class="card-img-wrap">
+              <img src="assets/lipstick-.ruby.JPG.jpg" alt="Lipstick Ruby" loading="lazy">
+              <div class="card-quick-actions">
+                <button class="quick-action-btn"><i class="fa-regular fa-heart"></i></button>
+                <button class="quick-action-btn card-quick-view"><i class="fa-solid fa-eye"></i></button>
+              </div>
+              <div class="card-img-overlay"></div>
+              <button class="btn btn-primary card-view-btn card-quick-view">Quick View</button>
+            </div>
+            <div class="card-body">
+              <div class="card-name">Lipstick — Ruby</div>
+              <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <div class="card-pricing">
+                <div class="card-price-group">
+                  <span class="price-old">TZS 128,000</span><span class="price-new">TZS 78,000</span>
+                </div>
+                <button class="card-add-btn add-to-cart-btn"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" data-name="Lipstick — Sapphire" data-img="assets/lipstick-.saphire.JPG.jpg" data-old="128,000" data-price="78,000">
+            <div class="card-img-wrap">
+              <img src="assets/lipstick-.saphire.JPG.jpg" alt="Lipstick Sapphire" loading="lazy">
+              <span class="card-badge badge-new">New</span>
+              <div class="card-quick-actions">
+                <button class="quick-action-btn"><i class="fa-regular fa-heart"></i></button>
+                <button class="quick-action-btn card-quick-view"><i class="fa-solid fa-eye"></i></button>
+              </div>
+              <div class="card-img-overlay"></div>
+              <button class="btn btn-primary card-view-btn card-quick-view">Quick View</button>
+            </div>
+            <div class="card-body">
+              <div class="card-name">Lipstick — Sapphire</div>
+              <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <div class="card-pricing">
+                <div class="card-price-group">
+                  <span class="price-old">TZS 128,000</span><span class="price-new">TZS 78,000</span>
+                </div>
+                <button class="card-add-btn add-to-cart-btn"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" data-name="Lipstick — Tanzanite" data-img="assets/lipstick-.tanzanite.JPG.jpg" data-old="128,000" data-price="78,000">
+            <div class="card-img-wrap">
+              <img src="assets/lipstick-.tanzanite.JPG.jpg" alt="Lipstick Tanzanite" loading="lazy">
+              <span class="card-badge badge-new">New</span>
+              <div class="card-quick-actions">
+                <button class="quick-action-btn"><i class="fa-regular fa-heart"></i></button>
+                <button class="quick-action-btn card-quick-view"><i class="fa-solid fa-eye"></i></button>
+              </div>
+              <div class="card-img-overlay"></div>
+              <button class="btn btn-primary card-view-btn card-quick-view">Quick View</button>
+            </div>
+            <div class="card-body">
+              <div class="card-name">Lipstick — Tanzanite</div>
+              <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <div class="card-pricing">
+                <div class="card-price-group">
+                  <span class="price-old">TZS 128,000</span><span class="price-new">TZS 78,000</span>
+                </div>
+                <button class="card-add-btn add-to-cart-btn"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" data-name="Lipstick — Silver" data-img="assets/lipstick-silver.JPG.jpg" data-old="128,000" data-price="78,000">
+            <div class="card-img-wrap">
+              <img src="assets/lipstick-silver.JPG.jpg" alt="Lipstick Silver" loading="lazy">
+              <div class="card-quick-actions">
+                <button class="quick-action-btn"><i class="fa-regular fa-heart"></i></button>
+                <button class="quick-action-btn card-quick-view"><i class="fa-solid fa-eye"></i></button>
+              </div>
+              <div class="card-img-overlay"></div>
+              <button class="btn btn-primary card-view-btn card-quick-view">Quick View</button>
+            </div>
+            <div class="card-body">
+              <div class="card-name">Lipstick — Silver</div>
+              <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <div class="card-pricing">
+                <div class="card-price-group">
+                  <span class="price-old">TZS 128,000</span><span class="price-new">TZS 78,000</span>
+                </div>
+                <button class="card-add-btn add-to-cart-btn"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" data-name="Lipstick — Spinel" data-img="assets/lipstick-spinel.JPG.jpg" data-old="128,000" data-price="78,000">
+            <div class="card-img-wrap">
+              <img src="assets/lipstick-spinel.JPG.jpg" alt="Lipstick Spinel" loading="lazy">
+              <div class="card-quick-actions">
+                <button class="quick-action-btn"><i class="fa-regular fa-heart"></i></button>
+                <button class="quick-action-btn card-quick-view"><i class="fa-solid fa-eye"></i></button>
+              </div>
+              <div class="card-img-overlay"></div>
+              <button class="btn btn-primary card-view-btn card-quick-view">Quick View</button>
+            </div>
+            <div class="card-body">
+              <div class="card-name">Lipstick — Spinel</div>
+              <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <div class="card-pricing">
+                <div class="card-price-group">
+                  <span class="price-old">TZS 128,000</span><span class="price-new">TZS 78,000</span>
+                </div>
+                <button class="card-add-btn add-to-cart-btn"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="see-more-wrap">
+          <a href="lipsticks.html" class="see-more-link">See All 24 Lipsticks <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── LASHES ── -->
+    <section id="lashes" class="products-section">
+      <div class="container">
+        <div class="products-section-header">
+          <div class="products-section-title">
+            <span>Premium Eye Collection</span>
+            Lashes
+          </div>
+          <div class="filter-bar">
+            <span class="filter-count">9 items</span>
+            <select class="filter-select" aria-label="Sort lashes">
+              <option>Best Selling</option><option>Newest</option>
+              <option>Price: Low → High</option><option>Price: High → Low</option>
+            </select>
+          </div>
+        </div>
+        <div class="products-grid reveal">
+
+          <div class="product-card" data-name="10 Pair Lashes" data-img="assets/lashes7.JPG.jpg" data-old="28,000" data-price="25,000">
+            <div class="card-img-wrap">
+              <img src="assets/lashes7.JPG.jpg" alt="10 Pair Lashes" loading="lazy">
+              <span class="card-badge badge-new">New</span>
+              <div class="card-quick-actions">
+                <button class="quick-action-btn"><i class="fa-regular fa-heart"></i></button>
+                <button class="quick-action-btn card-quick-view"><i class="fa-solid fa-eye"></i></button>
+              </div>
+              <div class="card-img-overlay"></div>
+              <button class="btn btn-primary card-view-btn card-quick-view">Quick View</button>
+            </div>
+            <div class="card-body">
+              <div class="card-name">10 Pair Lashes</div>
+              <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <div class="card-pricing">
+                <div class="card-price-group">
+                  <span class="price-old">TZS 28,000</span><span class="price-new">TZS 25,000</span>
+                </div>
+                <button class="card-add-btn add-to-cart-btn"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" data-name="Tape Lashes" data-img="assets/lashes2.JPG.jpg" data-old="7,000" data-price="6,000">
+            <div class="card-img-wrap">
+              <img src="assets/lashes2.JPG.jpg" alt="Tape Lashes" loading="lazy">
+              <span class="card-badge badge-sale">Sale</span>
+              <div class="card-quick-actions">
+                <button class="quick-action-btn"><i class="fa-regular fa-heart"></i></button>
+                <button class="quick-action-btn card-quick-view"><i class="fa-solid fa-eye"></i></button>
+              </div>
+              <div class="card-img-overlay"></div>
+              <button class="btn btn-primary card-view-btn card-quick-view">Quick View</button>
+            </div>
+            <div class="card-body">
+              <div class="card-name">Tape Lashes</div>
+              <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <div class="card-pricing">
+                <div class="card-price-group">
+                  <span class="price-old">TZS 7,000</span><span class="price-new">TZS 6,000</span>
+                </div>
+                <button class="card-add-btn add-to-cart-btn"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" data-name="Individual D Lashes" data-img="assets/lashes3.JPG.jpg" data-old="18,000" data-price="15,000">
+            <div class="card-img-wrap">
+              <img src="assets/lashes3.JPG.jpg" alt="Individual D Lashes" loading="lazy">
+              <div class="card-quick-actions">
+                <button class="quick-action-btn"><i class="fa-regular fa-heart"></i></button>
+                <button class="quick-action-btn card-quick-view"><i class="fa-solid fa-eye"></i></button>
+              </div>
+              <div class="card-img-overlay"></div>
+              <button class="btn btn-primary card-view-btn card-quick-view">Quick View</button>
+            </div>
+            <div class="card-body">
+              <div class="card-name">Individual D Lashes</div>
+              <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <div class="card-pricing">
+                <div class="card-price-group">
+                  <span class="price-old">TZS 18,000</span><span class="price-new">TZS 15,000</span>
+                </div>
+                <button class="card-add-btn add-to-cart-btn"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" data-name="Lashes Full Kit" data-img="assets/lashes-kit.JPG.jpg" data-old="45,000" data-price="40,000">
+            <div class="card-img-wrap">
+              <img src="assets/lashes-kit.JPG.jpg" alt="Lashes Full Kit" loading="lazy">
+              <span class="card-badge badge-new">New</span>
+              <div class="card-quick-actions">
+                <button class="quick-action-btn"><i class="fa-regular fa-heart"></i></button>
+                <button class="quick-action-btn card-quick-view"><i class="fa-solid fa-eye"></i></button>
+              </div>
+              <div class="card-img-overlay"></div>
+              <button class="btn btn-primary card-view-btn card-quick-view">Quick View</button>
+            </div>
+            <div class="card-body">
+              <div class="card-name">Lashes Full Kit</div>
+              <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <div class="card-pricing">
+                <div class="card-price-group">
+                  <span class="price-old">TZS 45,000</span><span class="price-new">TZS 40,000</span>
+                </div>
+                <button class="card-add-btn add-to-cart-btn"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" data-name="Volume Lashes Set" data-img="assets/lashes1.JPG.jpg" data-old="35,000" data-price="30,000">
+            <div class="card-img-wrap">
+              <img src="assets/lashes1.JPG.jpg" alt="Volume Lashes" loading="lazy">
+              <span class="card-badge badge-new">New</span>
+              <div class="card-quick-actions">
+                <button class="quick-action-btn"><i class="fa-regular fa-heart"></i></button>
+                <button class="quick-action-btn card-quick-view"><i class="fa-solid fa-eye"></i></button>
+              </div>
+              <div class="card-img-overlay"></div>
+              <button class="btn btn-primary card-view-btn card-quick-view">Quick View</button>
+            </div>
+            <div class="card-body">
+              <div class="card-name">Volume Lashes Set</div>
+              <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <div class="card-pricing">
+                <div class="card-price-group">
+                  <span class="price-old">TZS 35,000</span><span class="price-new">TZS 30,000</span>
+                </div>
+                <button class="card-add-btn add-to-cart-btn"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" data-name="Mega Volume Lashes" data-img="assets/lashes5.JPG.jpg" data-old="50,000" data-price="42,000">
+            <div class="card-img-wrap">
+              <img src="assets/lashes5.JPG.jpg" alt="Mega Volume Lashes" loading="lazy">
+              <div class="card-quick-actions">
+                <button class="quick-action-btn"><i class="fa-regular fa-heart"></i></button>
+                <button class="quick-action-btn card-quick-view"><i class="fa-solid fa-eye"></i></button>
+              </div>
+              <div class="card-img-overlay"></div>
+              <button class="btn btn-primary card-view-btn card-quick-view">Quick View</button>
+            </div>
+            <div class="card-body">
+              <div class="card-name">Mega Volume Lashes</div>
+              <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <div class="card-pricing">
+                <div class="card-price-group">
+                  <span class="price-old">TZS 50,000</span><span class="price-new">TZS 42,000</span>
+                </div>
+                <button class="card-add-btn add-to-cart-btn"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" data-name="Wispy Lashes" data-img="assets/lashes8.JPG.jpg" data-old="32,000" data-price="28,000">
+            <div class="card-img-wrap">
+              <img src="assets/lashes8.JPG.jpg" alt="Wispy Lashes" loading="lazy">
+              <span class="card-badge badge-sale">Sale</span>
+              <div class="card-quick-actions">
+                <button class="quick-action-btn"><i class="fa-regular fa-heart"></i></button>
+                <button class="quick-action-btn card-quick-view"><i class="fa-solid fa-eye"></i></button>
+              </div>
+              <div class="card-img-overlay"></div>
+              <button class="btn btn-primary card-view-btn card-quick-view">Quick View</button>
+            </div>
+            <div class="card-body">
+              <div class="card-name">Wispy Lashes</div>
+              <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <div class="card-pricing">
+                <div class="card-price-group">
+                  <span class="price-old">TZS 32,000</span><span class="price-new">TZS 28,000</span>
+                </div>
+                <button class="card-add-btn add-to-cart-btn"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" data-name="Natural Lashes" data-img="assets/lashes9.JPG.jpg" data-old="22,000" data-price="18,000">
+            <div class="card-img-wrap">
+              <img src="assets/lashes9.JPG.jpg" alt="Natural Lashes" loading="lazy">
+              <div class="card-quick-actions">
+                <button class="quick-action-btn"><i class="fa-regular fa-heart"></i></button>
+                <button class="quick-action-btn card-quick-view"><i class="fa-solid fa-eye"></i></button>
+              </div>
+              <div class="card-img-overlay"></div>
+              <button class="btn btn-primary card-view-btn card-quick-view">Quick View</button>
+            </div>
+            <div class="card-body">
+              <div class="card-name">Natural Lashes</div>
+              <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <div class="card-pricing">
+                <div class="card-price-group">
+                  <span class="price-old">TZS 22,000</span><span class="price-new">TZS 18,000</span>
+                </div>
+                <button class="card-add-btn add-to-cart-btn"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="see-more-wrap">
+          <a href="lashes.html" class="see-more-link">See All Lashes <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SHAMPOO ── -->
+    <section id="shampoo" class="products-section">
+      <div class="container">
+        <div class="products-section-header">
+          <div class="products-section-title">
+            <span>Care Collection</span>
+            Lash Shampoo
+          </div>
+          <div class="filter-bar">
+            <span class="filter-count">1 item</span>
+            <select class="filter-select"><option>Best Selling</option></select>
+          </div>
+        </div>
+        <div class="products-grid reveal">
+          <div class="product-card" data-name="Lash Shampoo" data-img="assets/lash-shampoo1.JPG.jpg" data-old="18,000" data-price="15,000">
+            <div class="card-img-wrap">
+              <img src="assets/lash-shampoo1.JPG.jpg" alt="Lash Shampoo" loading="lazy">
+              <span class="card-badge badge-new">New</span>
+              <div class="card-quick-actions">
+                <button class="quick-action-btn"><i class="fa-regular fa-heart"></i></button>
+                <button class="quick-action-btn card-quick-view"><i class="fa-solid fa-eye"></i></button>
+              </div>
+              <div class="card-img-overlay"></div>
+              <button class="btn btn-primary card-view-btn card-quick-view">Quick View</button>
+            </div>
+            <div class="card-body">
+              <div class="card-name">Lash Shampoo</div>
+              <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <div class="card-pricing">
+                <div class="card-price-group">
+                  <span class="price-old">TZS 18,000</span><span class="price-new">TZS 15,000</span>
+                </div>
+                <button class="card-add-btn add-to-cart-btn"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TWEEZERS ── -->
+    <section id="tweezers" class="products-section">
+      <div class="container">
+        <div class="products-section-header">
+          <div class="products-section-title">
+            <span>Tools Collection</span>
+            Tweezers
+          </div>
+          <div class="filter-bar">
+            <span class="filter-count">1 item</span>
+            <select class="filter-select"><option>Best Selling</option></select>
+          </div>
+        </div>
+        <div class="products-grid reveal">
+          <div class="product-card" data-name="Precision Tweezers" data-img="assets/tweezer.JPG.jpg" data-old="11,000" data-price="10,000">
+            <div class="card-img-wrap">
+              <img src="assets/tweezer.JPG.jpg" alt="Tweezers" loading="lazy">
+              <span class="card-badge badge-new">New</span>
+              <div class="card-quick-actions">
+                <button class="quick-action-btn"><i class="fa-regular fa-heart"></i></button>
+                <button class="quick-action-btn card-quick-view"><i class="fa-solid fa-eye"></i></button>
+              </div>
+              <div class="card-img-overlay"></div>
+              <button class="btn btn-primary card-view-btn card-quick-view">Quick View</button>
+            </div>
+            <div class="card-body">
+              <div class="card-name">Precision Tweezers</div>
+              <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <div class="card-pricing">
+                <div class="card-price-group">
+                  <span class="price-old">TZS 11,000</span><span class="price-new">TZS 10,000</span>
+                </div>
+                <button class="card-add-btn add-to-cart-btn"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PRIMER ── -->
+    <section id="primer" class="products-section">
+      <div class="container">
+        <div class="products-section-header">
+          <div class="products-section-title">
+            <span>Care Collection</span>
+            Lash Primer
+          </div>
+          <div class="filter-bar">
+            <span class="filter-count">1 item</span>
+            <select class="filter-select"><option>Best Selling</option></select>
+          </div>
+        </div>
+        <div class="products-grid reveal">
+          <div class="product-card" data-name="Lash Primer" data-img="assets/lash-primer.JPG.jpg" data-old="17,000" data-price="15,000">
+            <div class="card-img-wrap">
+              <img src="assets/lash-primer.JPG.jpg" alt="Lash Primer" loading="lazy">
+              <span class="card-badge badge-new">New</span>
+              <div class="card-quick-actions">
+                <button class="quick-action-btn"><i class="fa-regular fa-heart"></i></button>
+                <button class="quick-action-btn card-quick-view"><i class="fa-solid fa-eye"></i></button>
+              </div>
+              <div class="card-img-overlay"></div>
+              <button class="btn btn-primary card-view-btn card-quick-view">Quick View</button>
+            </div>
+            <div class="card-body">
+              <div class="card-name">Lash Primer</div>
+              <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+              <div class="card-pricing">
+                <div class="card-price-group">
+                  <span class="price-old">TZS 17,000</span><span class="price-new">TZS 15,000</span>
+                </div>
+                <button class="card-add-btn add-to-cart-btn"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="see-more-wrap">
+          <a href="primer.html" class="see-more-link">See All Primers <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── GLUE ── -->
+    <section id="glue" class="products-section">
+      <div class="container">
+        <div class="products-section-header">
+          <div class="products-section-title">
+            <span>Essential Collection</span>
+            Lash Glue
+          </div>
+          <div class="filter-bar">
+            <span class="filter-count">1 item</span>
+            <select class="filter-select"><option>Best Selling</option></select>
+          </div>
+        </div>
+        <div class="products-grid reveal">
+          <div class="product-card" data-name="Tape Lash Glue" data-img="assets/lash-glue1.JPG.jpg" data-old="12,000" data-price="10,000">
+            <div class="card-img-wrap">
+              <img src="assets/lash-glue1.JPG.jpg" alt="Lash Glue" loading="lazy">
+              <span class="card-badge badge-new">New</span>
+              <div class="card-quick-actions">
+                <button class="quick-action-btn"><i class="fa-regular fa-heart"></i></button>
+                <button class="quick-action-btn card-quick-view"><i class="fa-solid fa-eye"></i></button>
+              </div>
+              <div class="card-img-overlay"></div>
+              <button class="btn btn-primary card-view-btn card-quick-view">Quick View</button>
+            </div>
+            <div class="card-body">
+              <div class="card-name">Tape Lash Glue</div>
+              <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+              <div class="card-pricing">
+                <div class="card-price-group">
+                  <span class="price-old">TZS 12,000</span><span class="price-new">TZS 10,000</span>
+                </div>
+                <button class="card-add-btn add-to-cart-btn"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── MASCARA ── -->
+    <section id="mascara" class="products-section">
+      <div class="container">
+        <div class="products-section-header">
+          <div class="products-section-title">
+            <span>Eye Collection</span>
+            Mascara
+          </div>
+          <div class="filter-bar">
+            <span class="filter-count">2 items</span>
+            <select class="filter-select"><option>Best Selling</option></select>
+          </div>
+        </div>
+        <div class="products-grid reveal">
+          <div class="product-card" data-name="Colourless Mascara" data-img="assets/lashes4.JPG.jpg" data-old="15,000" data-price="12,000">
+            <div class="card-img-wrap">
+              <img src="assets/lashes4.JPG.jpg" alt="Colourless Mascara" loading="lazy">
+              <span class="card-badge badge-new">New</span>
+              <div class="card-quick-actions">
+                <button class="quick-action-btn"><i class="fa-regular fa-heart"></i></button>
+                <button class="quick-action-btn card-quick-view"><i class="fa-solid fa-eye"></i></button>
+              </div>
+              <div class="card-img-overlay"></div>
+              <button class="btn btn-primary card-view-btn card-quick-view">Quick View</button>
+            </div>
+            <div class="card-body">
+              <div class="card-name">Colourless Mascara</div>
+              <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <div class="card-pricing">
+                <div class="card-price-group">
+                  <span class="price-old">TZS 15,000</span><span class="price-new">TZS 12,000</span>
+                </div>
+                <button class="card-add-btn add-to-cart-btn"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="product-card" data-name="Volume Mascara" data-img="assets/lashes6.JPG.jpg" data-old="18,000" data-price="15,000">
+            <div class="card-img-wrap">
+              <img src="assets/lashes6.JPG.jpg" alt="Volume Mascara" loading="lazy">
+              <div class="card-quick-actions">
+                <button class="quick-action-btn"><i class="fa-regular fa-heart"></i></button>
+                <button class="quick-action-btn card-quick-view"><i class="fa-solid fa-eye"></i></button>
+              </div>
+              <div class="card-img-overlay"></div>
+              <button class="btn btn-primary card-view-btn card-quick-view">Quick View</button>
+            </div>
+            <div class="card-body">
+              <div class="card-name">Volume Mascara</div>
+              <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <div class="card-pricing">
+                <div class="card-price-group">
+                  <span class="price-old">TZS 18,000</span><span class="price-new">TZS 15,000</span>
+                </div>
+                <button class="card-add-btn add-to-cart-btn"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TAPE ── -->
+    <section id="tape" class="products-section">
+      <div class="container">
+        <div class="products-section-header">
+          <div class="products-section-title">
+            <span>Tools Collection</span>
+            Lash Tape
+          </div>
+          <div class="filter-bar">
+            <span class="filter-count">1 item</span>
+            <select class="filter-select"><option>Best Selling</option></select>
+          </div>
+        </div>
+        <div class="products-grid reveal">
+          <div class="product-card" data-name="Lash Tape" data-img="assets/lipsticks-showcase.JPG.jpg" data-old="10,000" data-price="8,000">
+            <div class="card-img-wrap">
+              <img src="assets/lipsticks-showcase.JPG.jpg" alt="Lash Tape" loading="lazy">
+              <span class="card-badge badge-new">New</span>
+              <div class="card-quick-actions">
+                <button class="quick-action-btn"><i class="fa-regular fa-heart"></i></button>
+                <button class="quick-action-btn card-quick-view"><i class="fa-solid fa-eye"></i></button>
+              </div>
+              <div class="card-img-overlay"></div>
+              <button class="btn btn-primary card-view-btn card-quick-view">Quick View</button>
+            </div>
+            <div class="card-body">
+              <div class="card-name">Lash Tape</div>
+              <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <div class="card-pricing">
+                <div class="card-price-group">
+                  <span class="price-old">TZS 10,000</span><span class="price-new">TZS 8,000</span>
+                </div>
+                <button class="card-add-btn add-to-cart-btn"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== ABOUT / MISSION ===================== -->
+  <section class="mission-section">
+    <div class="container">
+      <div class="mission-inner">
+        <div class="mission-images reveal">
+          <div class="mission-img-main">
+            <img src="assets/our-mission.JPG.jpg" alt="Our mission">
+          </div>
+          <div class="mission-img-small">
+            <img src="assets/owner1.PNG.png" alt="Darfeely owner">
+          </div>
+        </div>
+        <div class="mission-content reveal">
+          <span class="section-label">✦ Our Story</span>
+          <h2 class="section-title">Beauty is More Than<br><span style="background:var(--gradient-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic;">Skin Deep</span></h2>
+          <p class="section-desc" style="max-width:none;">
+            Darfeely Beauty was born from a passion for making every person feel confident, beautiful, and empowered. Based in Dar es Salaam, we bring you luxury-quality products and professional services that are accessible, authentic, and timeless.
+          </p>
+          <p class="section-desc" style="max-width:none;margin-top:12px;">
+            From our carefully curated gem-named lipstick collection to our professional lash extension services — every product and service is selected and delivered with care and expertise.
+          </p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;">
+            <a href="tel:+255782515322" class="btn btn-primary">
+              <i class="fa-solid fa-phone"></i> Call Us
+            </a>
+            <a href="https://wa.me/255782515322" target="_blank" class="btn btn-outline">
+              <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CUSTOMER FEEDBACK ===================== -->
+  <section class="feedback-section reveal" id="feedback">
+    <div class="container">
+      <div class="feedback-inner">
+        <!-- Left Column: Form -->
+        <div class="feedback-form-card glass-card reveal">
+          <span class="section-label">✦ We Value You</span>
+          <h2 class="section-title" style="margin-bottom: 20px;">Share Your <span style="background:var(--gradient-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic;">Experience</span></h2>
+          <p class="section-desc" style="margin-bottom: 24px;">Your feedback helps us grow and keep delivering the finest beauty products and services in Dar es Salaam.</p>
+          
+          <form id="customerFeedbackForm">
+            <div class="form-group">
+              <label for="feedbackName">Your Name</label>
+              <input type="text" id="feedbackName" placeholder="e.g., Jane Doe" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="feedbackSource">How did you reach us?</label>
+              <select id="feedbackSource" required class="form-select-custom">
+                <option value="" disabled selected>Select an option</option>
+                <option value="Instagram">Instagram</option>
+                <option value="TikTok">TikTok</option>
+                <option value="WhatsApp">WhatsApp</option>
+                <option value="Word of Mouth">Friend / Recommendation</option>
+                <option value="Search Engine">Search Engine (Google, etc.)</option>
+                <option value="Advertisement">Advertisement</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="feedbackComment">Your Comments / Feedback</label>
+              <textarea id="feedbackComment" placeholder="Tell us about your experience..." rows="4" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">
+              <i class="fa-solid fa-paper-plane"></i> Submit Feedback
+            </button>
+          </form>
+        </div>
+        
+        <!-- Right Column: Recent Comments List -->
+        <div class="feedback-display reveal">
+          <span class="section-label">✦ Customer Voice</span>
+          <h2 class="section-title" style="margin-bottom: 20px;">What They <span style="background:var(--gradient-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic;">Say</span></h2>
+          
+          <div class="feedback-list-container" id="feedbackListContainer">
+            <!-- Feedbacks will be dynamically populated here -->
+            <div class="feedback-loader" style="text-align: center; padding: 40px 0; color: var(--text-muted);">
+              <i class="fa-solid fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 12px; display: block; color: var(--primary);"></i>
+              <p>Loading customer reviews...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== NEWSLETTER ===================== -->
+
+  <section class="newsletter-section">
+    <div class="container newsletter-inner">
+      <div class="newsletter-img-wrap reveal">
+        <img src="assets/makeup1.JPG.jpg" alt="Darfeely Beauty makeup">
+      </div>
+      <div class="newsletter-content reveal">
+        <span class="section-label">✦ Stay Connected</span>
+        <h2 class="newsletter-title">
+          Subscribe to Our<br>
+          <span class="highlight">Newsletter</span>
+        </h2>
+        <p class="newsletter-desc">
+          Be the first to receive exclusive offers, new arrivals, and expert beauty tips from Darfeely Beauty — delivered straight to your inbox.
+        </p>
+        <div class="newsletter-form">
+          <input type="email" id="newsletterEmail" placeholder="Enter your email address…">
+          <button class="btn btn-primary" id="subscribeBtn">
+            <i class="fa-solid fa-paper-plane"></i> Subscribe
+          </button>
+        </div>
+        <p style="font-size:0.75rem;color:var(--text-muted);margin-top:8px;">
+          <i class="fa-solid fa-lock" style="margin-right:4px;"></i>
+          We respect your privacy. Unsubscribe at any time.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="assets/logo.png" alt="Darfeely Beauty">
+            <span class="footer-brand-name">Darfeely Beauty</span>
+          </div>
+          <p class="footer-brand-tagline">
+            Redefining beauty standards with luxury-quality products and professional services. Authentic, affordable, and timeless — from Dar es Salaam to you.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/255782515322" class="social-btn" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#" class="social-btn" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <div class="footer-links">
+            <a href="#lipsticks"><i class="fa-solid fa-chevron-right"></i> Lipsticks</a>
+            <a href="#lashes"><i class="fa-solid fa-chevron-right"></i> Lashes</a>
+            <a href="#shampoo"><i class="fa-solid fa-chevron-right"></i> Lash Shampoo</a>
+            <a href="#tweezers"><i class="fa-solid fa-chevron-right"></i> Tweezers</a>
+            <a href="#primer"><i class="fa-solid fa-chevron-right"></i> Lash Primer</a>
+            <a href="#glue"><i class="fa-solid fa-chevron-right"></i> Lash Glue</a>
+            <a href="#mascara"><i class="fa-solid fa-chevron-right"></i> Mascara</a>
+            <a href="#feedback"><i class="fa-solid fa-chevron-right"></i> Customer Feedback</a>
+            <a href="admin.html" style="color: var(--primary); margin-top: 8px;"><i class="fa-solid fa-lock"></i> Admin Dashboard</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <div class="footer-contact-item"><i class="fa-solid fa-phone"></i><a href="tel:+255782515322">+255 782 515 322</a></div>
+          <div class="footer-contact-item"><i class="fa-solid fa-envelope"></i><a href="mailto:darfeelybeauty@gmail.com">darfeelybeauty@gmail.com</a></div>
+          <div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span>Dar es Salaam, Tanzania</span></div>
+          <div class="footer-contact-item"><i class="fa-brands fa-instagram"></i><a href="#">@feelybetter</a></div>
+          <div class="footer-contact-item"><i class="fa-brands fa-whatsapp"></i><a href="https://wa.me/255782515322">@darfeely_beauty</a></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2025 Darfeely Beauty. All rights reserved.</span>
+        <span class="footer-dev">Developed by <a href="tel:+255650557424">+255 650 557 424</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
